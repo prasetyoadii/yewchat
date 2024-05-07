@@ -140,8 +140,8 @@ impl Component for Chat {
 
         html! {
             <div class="flex w-screen">
-                <div class="flex-none w-56 h-screen bg-gray-100">
-                    <div class="text-xl p-3">{"Users"}</div>
+                <div class="flex-none w-56 h-screen bg-[#596c5f]">
+                    <div class="text-2xl font-bold text-gray-800 p-3">{"Users"}</div>
                     {
                         self.users.clone().iter().map(|u| {
                             html!{
@@ -151,7 +151,7 @@ impl Component for Chat {
                                     </div>
                                     <div class="flex-grow p-3">
                                         <div class="flex text-xs justify-between">
-                                            <div>{u.name.clone()}</div>
+                                            <div class="font-semibold text-gray-900">{u.name.clone()}</div>
                                         </div>
                                         <div class="text-xs text-gray-400">
                                             {"Hi there!"}
@@ -162,8 +162,8 @@ impl Component for Chat {
                         }).collect::<Html>()
                     }
                 </div>
-                <div class="grow h-screen flex flex-col">
-                    <div class="w-full h-14 border-b-2 border-gray-300"><div class="text-xl p-3">{"💬 Chat!"}</div></div>
+                <div class="grow h-screen flex flex-col bg-[#a9c3b2]">
+                    <div class="w-full h-14 border-b-2 border-gray-300"><div class="text-2xl font-bold text-gray-800 p-3">{"💬 Chat!"}</div></div>
                     <div class="w-full grow overflow-auto border-b-2 border-gray-300">
                         {
                             self.messages.iter().map(|m| {
@@ -172,10 +172,10 @@ impl Component for Chat {
                                     <div class="flex items-end w-3/6 bg-gray-100 m-8 rounded-tl-lg rounded-tr-lg rounded-br-lg ">
                                         <img class="w-8 h-8 rounded-full m-3" src={user.avatar.clone()} alt="avatar"/>
                                         <div class="p-3">
-                                            <div class="text-sm">
+                                            <div class="text-sm font-semibold text-gray-800">
                                                 {m.from.clone()}
                                             </div>
-                                            <div class="text-xs text-gray-500">
+                                            <div class="text-xs text-gray-600">
                                                 if m.message.ends_with(".gif") {
                                                     <img class="mt-3" src={m.message.clone()}/>
                                                 } else {
